@@ -18,13 +18,30 @@ const wordsArray = [
   "wolf", "yak", "zebu"
 ];
 
+// Generates a random word from the wordsArray
 const getRandomWord = () => {
   const randomIndex = Math.floor(Math.random() * wordsArray.length);
   return wordsArray[randomIndex];
 }
 
 const word = getRandomWord();
-console.log(word);  // This will print a randomly selected word from your array
 document.getElementById("word").textContent = `The randomly chosen word is ${word}`;
+
+// Splits the randomly generated word into an array of characters that the user can guess
+const letters = word.split('');
+
+console.log(letters);
+
+// Creates an object to track each letter as having been guessed or not
+const letterStatus = {};
+
+// Set each letter to default not guessed
+letters.forEach(letter => {
+  letterStatus[letter] = false;
+});
+
+console.log(letterStatus);
+
+
 
 
