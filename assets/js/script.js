@@ -36,6 +36,7 @@ const wordsArray = [
 let letters;
 let letterStatus;
 let remainingGuesses;
+let displayWord;
 
 // Initialize game
 function startGame() {
@@ -50,7 +51,7 @@ function startGame() {
   document.getElementById("word").textContent = `The randomly chosen word is ${word}`;
 
   // Splits the randomly generated word into an array of characters that the user can guess
-  letters = word.split('');
+  letters = word.split("");
 
   // Log out letters for testing
   console.log(letters);
@@ -68,6 +69,9 @@ function startGame() {
   // Sets the number of guesses at the start of the game
   remainingGuesses = 7;
 
+  // Displays the length of the word, using underscores in place of letters not yet guessed
+  displayWord = "_ ".repeat(letters.length);
+  document.getElementById("display-word").textContent = displayWord;
 }
 
 startGame();
@@ -77,6 +81,20 @@ function checkAnswer() {
   // Gets user guess and converts it to lowercase if its provided in uppercase 
   let userAnswer = document.getElementById("guess-box").value.toLowerCase();
   let wrongGuess = true;
+
+  let newDisplayWord = '';
+  for (let i = 0; i < letters.length; i++) {
+    if (userAnswer === letters[i]) {
+      newDisplayWord += letters[i];
+      wrongGuess = false;
+      letterStatus[letters[i]] = true;
+    } else {
+      newDisplayWord += letterStatus[letters[i]] ? letters[i] : '_';
+    }
+  }
+
+  displayWord = newDisplayWord;
+  document.getElementById("display-word").textContent = displayWord;
 
   // Loops through letters to see if the guessed letter is in the word
   letters.forEach(letter => {
