@@ -32,6 +32,18 @@ const wordsArray = [
   "wolf", "yak", "zebu"
 ];
 
+// Array to store the hangman states
+const hangmanStates = [
+  "|========|",
+  "  |||\n  |||\n  |||\n  |||\n  |||\n|========|",
+  "  =================\n  |||\n  |||\n  |||\n  |||\n  |||\n|========|",
+  "  =================\n  |||       O\n  |||\n  |||\n  |||\n  |||\n|========|",
+  "  =================\n  |||       O\n  |||       |\n  |||\n  |||\n  |||\n|========|",
+  "  =================\n  |||       O\n  |||      /|\n  |||\n  |||\n  |||\n|========|",
+  "  =================\n  |||       O\n  |||      /|\\\n  |||\n  |||\n  |||\n|========|",
+  "  =================\n  |||       O\n  |||      /|\\\n  |||      /\n  |||\n  |||\n|========|",
+  "  =================\n  |||       O\n  |||      /|\\\n  |||      / \\\n  |||\n  |||\n|========|"
+];
 // Initialize variables for the game
 let letters;
 let letterStatus;
@@ -82,6 +94,7 @@ function checkAnswer() {
   let userAnswer = document.getElementById("guess-box").value.toLowerCase();
   let wrongGuess = true;
 
+  // Replaces the underscores with correctly guessed letters
   let newDisplayWord = '';
   for (let i = 0; i < letters.length; i++) {
     if (userAnswer === letters[i]) {
