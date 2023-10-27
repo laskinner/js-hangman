@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
+// A bank of words from which to randomly select for play
 const wordsArray = [
   "apple", "banana", "cherry", "date", "elder", "fig", "grape",
   "honey", "kiwi", "lemon", "mango", "nut", "olive", "pear",
@@ -31,50 +32,68 @@ const wordsArray = [
   "wolf", "yak", "zebu"
 ];
 
-// Generates a random word from the wordsArray
-const getRandomWord = () => {
-  const randomIndex = Math.floor(Math.random() * wordsArray.length);
-  return wordsArray[randomIndex];
+// Initialize variables for the game
+let letters;
+let letterStatus;
+let remainingGuesses;
+
+// Initialize game
+function startGame() {
+
+  // Generates a random word from the words array
+  const getRandomWord = () => {
+    const randomIndex = Math.floor(Math.random() * wordsArray.length);
+    return wordsArray[randomIndex];
+  }
+
+  const word = getRandomWord();
+  document.getElementById("word").textContent = `The randomly chosen word is ${word}`;
+
+  // Splits the randomly generated word into an array of characters that the user can guess
+  letters = word.split('');
+
+  // Log out letters for testing
+  console.log(letters);
+
+  // Initializez an object to track each letter as having been guessed or not, and sets each to default not guessed
+  letterStatus = {};
+
+  letters.forEach(letter => {
+    letterStatus[letter] = false;
+  });
+
+  // Logs out guessed status for testing
+  console.log(letterStatus);
+
+  remainingGuesses = 7;
+
 }
 
-const word = getRandomWord();
-document.getElementById("word").textContent = `The randomly chosen word is ${word}`;
-
-// Splits the randomly generated word into an array of characters that the user can guess
-const letters = word.split('');
-
-console.log(letters);
-
-// Creates an object to track each letter as having been guessed or not
-const letterStatus = {};
-
-// Sets each letter to default not guessed
-letters.forEach(letter => {
-  letterStatus[letter] = false;
-});
-
-console.log(letterStatus);
+startGame();
 
 function checkAnswer() {
 
-  let userAnswer = document.getElementById("guess-box").value;
-
-  // Converts user answer to lowercase if the words are provided in uppercase 
-  userAnswer = userAnswer.toLowerCase();
+  // Gets user guess and converts it to lowercase if its provided in uppercase 
+  let userAnswer = document.getElementById("guess-box").value.toLowerCase();
 
   // Loops through letters to see if the guessed letter is in the word
   letters.forEach(letter => {
     if (userAnswer === letter) {
+
       // Update the status of the guessed letter to true
       letterStatus[letter] = true;
+      wrongGuess = false;
     }
   });
+
+  // Checks to see if there are remaining guesse left, and if not, initiates loss mechanism and restarts game
+  if (remainingGuesses === 0) {
+    alert("Hang man!");
+    startGame();
+  }
 
   // Clears the input box after checking
   document.getElementById("guess-box").value = "";
 
   console.log(letterStatus);  // Logs updated letter status
 }
-
-
-
