@@ -36,13 +36,11 @@ const wordsArray = [
 const hangmanStates = [
   "|========|",
   "  |||\n  |||\n  |||\n  |||\n  |||\n|========|",
-  "  =================\n  |||\n  |||\n  |||\n  |||\n  |||\n|========|",
-  "  =================\n  |||       O\n  |||\n  |||\n  |||\n  |||\n|========|",
-  "  =================\n  |||       O\n  |||       |\n  |||\n  |||\n  |||\n|========|",
-  "  =================\n  |||       O\n  |||      /|\n  |||\n  |||\n  |||\n|========|",
-  "  =================\n  |||       O\n  |||      /|\\\n  |||\n  |||\n  |||\n|========|",
-  "  =================\n  |||       O\n  |||      /|\\\n  |||      /\n  |||\n  |||\n|========|",
-  "  =================\n  |||       O\n  |||      /|\\\n  |||      / \\\n  |||\n  |||\n|========|"
+  "  ==============\n  |||\n  |||\n  |||\n  |||\n  |||\n|========|",
+  "  ==============\n  |||       O\n  |||\n  |||\n  |||\n  |||\n|========|",
+  "  ==============\n  |||       O\n  |||       |\n  |||\n  |||\n  |||\n|========|",
+  "  ==============\n  |||       O\n  |||      /|\\ \n  |||\n  |||\n  |||\n|========|",
+  "  ==============\n  |||       O\n  |||      /|\\ \n  |||      / \\ \n  |||\n  |||\n|========|"
 ];
 // Initialize variables for the game
 let letters;
@@ -84,6 +82,7 @@ function startGame() {
   // Displays the length of the word, using underscores in place of letters not yet guessed
   displayWord = "_ ".repeat(letters.length);
   document.getElementById("display-word").textContent = displayWord;
+  document.getElementById("hangman-display").textContent = "";
 }
 
 startGame();
@@ -121,6 +120,10 @@ function checkAnswer() {
 
   if (wrongGuess) {
     remainingGuesses--;
+    let index = 7 - remainingGuesses;
+    if (index < hangmanStates.length) {
+      document.getElementById("hangman-display").textContent = hangmanStates[index];
+    }
   }
 
   // Checks to see if there are remaining guesse left, and if not, initiates loss mechanism and restarts game
@@ -129,6 +132,7 @@ function checkAnswer() {
     startGame();
   }
   console.log(remainingGuesses);
+  //
   // Clears the input box after checking
   document.getElementById("guess-box").value = "";
 
