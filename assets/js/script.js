@@ -78,6 +78,7 @@ function startGame() {
 
   // Sets the number of guesses at the start of the game
   remainingGuesses = 7;
+  document.getElementById("remaining-guesses").textContent = `Remaining guesses: ${remainingGuesses}`;
 
   // Displays the length of the word, using underscores in place of letters not yet guessed
   displayWord = "_ ".repeat(letters.length);
@@ -132,6 +133,7 @@ function checkAnswer() {
     startGame();
   }
   console.log(remainingGuesses);
+  document.getElementById("remaining-guesses").textContent = `Remaining guesses: ${remainingGuesses}`;
   //
   // Clears the input box after checking
   document.getElementById("guess-box").value = "";
