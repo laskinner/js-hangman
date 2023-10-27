@@ -65,6 +65,7 @@ function startGame() {
   // Logs out guessed status for testing
   console.log(letterStatus);
 
+  // Sets the number of guesses at the start of the game
   remainingGuesses = 7;
 
 }
@@ -75,6 +76,7 @@ function checkAnswer() {
 
   // Gets user guess and converts it to lowercase if its provided in uppercase 
   let userAnswer = document.getElementById("guess-box").value.toLowerCase();
+  let wrongGuess = true;
 
   // Loops through letters to see if the guessed letter is in the word
   letters.forEach(letter => {
@@ -86,12 +88,16 @@ function checkAnswer() {
     }
   });
 
+  if (wrongGuess) {
+    remainingGuesses--;
+  }
+
   // Checks to see if there are remaining guesse left, and if not, initiates loss mechanism and restarts game
   if (remainingGuesses === 0) {
     alert("Hang man!");
     startGame();
   }
-
+  console.log(remainingGuesses);
   // Clears the input box after checking
   document.getElementById("guess-box").value = "";
 
