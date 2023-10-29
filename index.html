@@ -33,17 +33,26 @@
   </section>
 
   <section id="game-section">
+    <h2>Let's Play!</h2>
 
-    <p id="word"></p>
-    <p class="guess">Enter a letter:</p>
-    <input id="guess-box" type="string">
-    <button id="submit" class="btn btn--gray">Submit Answer</button>
+    <div id="game-board">
+      <div id="word-section">
+        <p id="word"></p>
+      </div>
 
-    <div id="display-word"></div>
-    <pre id="hangman-display"></pre>
-    <div id="remaining-guesses"></div>
-    <div id="wrong-guesses"></div>
+      <div id="input-section">
+        <label for="guess-box" class="guess">Enter a letter:</label>
+        <input id="guess-box" type="text" maxlength="1">
+        <button id="submit" class="btn btn--gray">Submit Answer</button>
+      </div>
+    </div>
 
+    <div id="game-info">
+      <div id="display-word"></div>
+      <pre id="hangman-display"></pre>
+      <div id="remaining-guesses"></div>
+      <div id="wrong-guesses"></div>
+    </div>
   </section>
 
   <section id="results-section">
