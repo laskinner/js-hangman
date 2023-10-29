@@ -84,7 +84,14 @@ function startGame() {
   document.getElementById("hangman-display").textContent = "";
 }
 
-startGame();
+document.getElementById("start-button").addEventListener("click", function() {
+  // Call the startGame function to initialize the game
+  startGame();
+
+  // Scroll down to the game section
+  const game = document.getElementById("game");
+  game.scrollIntoView({ behavior: 'smooth' });
+});
 
 // Game won logic
 function gameWon() {
@@ -133,10 +140,14 @@ function checkAnswer() {
     // Game Lost logic
     document.getElementById("game-result").textContent = "Hang man!";
     document.getElementById("final-word").textContent = "The word was " + word;
+    const results = document.getElementById("results");
+    results.scrollIntoView({ behavior: 'smooth' });
   } else if (gameWon()) {
     // Renders game won 
     document.getElementById("game-result").textContent = "Congratulations! You won!";
     document.getElementById("final-word").textContent = "The word was " + word;
+    const results = document.getElementById("results");
+    results.scrollIntoView({ behavior: 'smooth' });
   }
 
 
