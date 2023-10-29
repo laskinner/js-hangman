@@ -1,6 +1,3 @@
-document.getElementById("welcome").textContent = "Welcome to hangman!";
-document.getElementById("instructions").textContent = "To play the game, just follow these simple instructions: ";
-
 document.addEventListener("DOMContentLoaded", function() {
 
   document.getElementById("submit").addEventListener("click", function() {
@@ -42,6 +39,7 @@ const hangmanStates = [
   "  ==============\n  |||       O\n  |||      /|\\ \n  |||\n  |||\n  |||\n|========|",
   "  ==============\n  |||       O\n  |||      /|\\ \n  |||      / \\ \n  |||\n  |||\n|========|"
 ];
+
 // Initialize variables for the game
 let letters;
 let letterStatus;

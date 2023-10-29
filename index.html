@@ -16,19 +16,40 @@
 </head>
 
 <body>
-  <h1 id="welcome"></h1>
-  <p id="instructions"></p>
-  <p id="word"></p>
+  <section id="intro-section" class="viewport">
+    <h1>Welcome to Hangman!</h1>
+    <div id="instructions">
+      <h2>Instructions</h2>
+      <ol>
+        <li>Click 'Start Game' to begin.</li>
+        <li>Guess a letter you think is in the hidden word.</li>
+        <li>If your guess is correct, the letter will appear in the word.</li>
+        <li>If your guess is incorrect, part of the hangman figure will be drawn.</li>
+        <li>You have up to 7 incorrect guesses before you lose.</li>
+        <li>Guess the entire word to win.</li>
+      </ol>
+    </div>
+    <button id="start-button">Start Game</button>
+  </section>
 
+  <section id="game-section">
 
-  <p class="guess">Enter a letter:</p>
-  <input id="guess-box" type="string">
-  <button id="submit" class="btn btn--gray">Submit Answer</button>
+    <p id="word"></p>
+    <p class="guess">Enter a letter:</p>
+    <input id="guess-box" type="string">
+    <button id="submit" class="btn btn--gray">Submit Answer</button>
 
-  <div id="display-word"></div>
-  <pre id="hangman-display"></pre>
-  <div id="remaining-guesses"></div>
-  <div id="wrong-guesses"></div>
+    <div id="display-word"></div>
+    <pre id="hangman-display"></pre>
+    <div id="remaining-guesses"></div>
+    <div id="wrong-guesses"></div>
+
+  </section>
+
+  <section id="results-section">
+
+  </section>
+
   <script src="assets/js/script.js"></script>
 </body>
 
