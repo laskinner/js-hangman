@@ -2,3 +2,21 @@
 .game-state {
   height: 100vh;
 }
+
+/* Fading functionality */
+.fade-out,
+.fade-in {
+  transition: opacity 1s ease-in-out;
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+.fade-in {
+  opacity: 1;
+}
+
+.hidden {
+  display: none;
+}

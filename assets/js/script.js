@@ -88,9 +88,13 @@ document.getElementById("start-button").addEventListener("click", function() {
   // Call the startGame function to initialize the game
   startGame();
 
+  // Clear the array containing displayed guesses
+  wrongGuesses = [];
+  document.getElementById("wrong-guesses").textContent = "Guessed letters: ";
+
   // Scroll down to the game section
-  const game = document.getElementById("game");
-  game.scrollIntoView({ behavior: 'smooth' });
+  fadeOut("welcome");
+  fadeIn("game");
 });
 
 // Game won logic
@@ -135,21 +139,23 @@ function checkAnswer() {
     document.getElementById("wrong-guesses").textContent = "Guessed letters: " + wrongGuesses.join(", ");
   }
 
-
   if (remainingGuesses === 0) {
     // Game Lost logic
     document.getElementById("game-result").textContent = "Hang man!";
     document.getElementById("final-word").textContent = "The word was " + word;
-    const results = document.getElementById("results");
-    results.scrollIntoView({ behavior: 'smooth' });
+    fadeOut("game");
+    fadeIn("results");
+    //const results = document.getElementById("results");
+    //results.scrollIntoView({ behavior: 'smooth' });
   } else if (gameWon()) {
     // Renders game won 
     document.getElementById("game-result").textContent = "Congratulations! You won!";
     document.getElementById("final-word").textContent = "The word was " + word;
-    const results = document.getElementById("results");
-    results.scrollIntoView({ behavior: 'smooth' });
+    fadeOut("game");
+    fadeIn("results");
+    //const results = document.getElementById("results");
+    //results.scrollIntoView({ behavior: 'smooth' });
   }
-
 
   // Update UI with remaining guesses
   document.getElementById("remaining-guesses").textContent = `Remaining guesses: ${remainingGuesses}`;
@@ -164,6 +170,25 @@ document.getElementById("play-again").addEventListener("click", function() {
   // Nuke everything and reset the game
   startGame();
 
-  // Scroll back to the top of the page
-  window.scrollTo(0, 0);
+  // Send user back to welcome section 
+  fadeOut("results");
+  fadeIn("welcome");
 });
+
+function fadeOut(id) {
+  const element = document.getElementById(id);
+  element.classList.add("fade-out");
+  element.classList.remove("fade-in");
+  setTimeout(() => {
+    element.classList.add("hidden");
+  }, 1000); // Hide after 1s
+}
+
+function fadeIn(id) {
+  const element = document.getElementById(id);
+  element.classList.remove("hidden");
+  element.classList.remove("fade-out"); // Remove fade-out first
+  setTimeout(() => {
+    element.classList.add("fade-in");
+  }, 500); // Add fade-in after a brief delay
+}
