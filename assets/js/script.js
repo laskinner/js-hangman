@@ -148,3 +148,11 @@ function checkAnswer() {
   console.log(remainingGuesses);
   console.log(letterStatus);  // Logs updated letter status
 }
+
+document.getElementById("play-again").addEventListener("click", function() {
+  // Nuke everything and reset the game
+  startGame();
+
+  // Scroll back to the top of the page
+  window.scrollTo(0, 0);
+});
