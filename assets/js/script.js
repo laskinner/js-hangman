@@ -47,6 +47,7 @@ let letters;
 let letterStatus;
 let remainingGuesses;
 let displayWord;
+let wrongGuesses = [];
 
 // Initialize game
 function startGame() {
@@ -58,7 +59,6 @@ function startGame() {
   }
 
   const word = getRandomWord();
-  document.getElementById("word").textContent = `The randomly chosen word is ${word}`;
 
   // Splits the randomly generated word into an array of characters that the user can guess
   letters = word.split("");
@@ -88,6 +88,7 @@ function startGame() {
 
 startGame();
 
+
 function checkAnswer() {
 
   // Gets user guess and converts it to lowercase if its provided in uppercase 
@@ -102,7 +103,7 @@ function checkAnswer() {
       wrongGuess = false;
       letterStatus[letters[i]] = true;
     } else {
-      newDisplayWord += letterStatus[letters[i]] ? letters[i] : '_';
+      newDisplayWord += letterStatus[letters[i]] ? letters[i] : '_ ';
     }
   }
 
@@ -119,17 +120,22 @@ function checkAnswer() {
     }
   });
 
+  // Renders the hangman with each wrongly guessed letter
   if (wrongGuess) {
     remainingGuesses--;
     let index = 7 - remainingGuesses;
     if (index < hangmanStates.length) {
       document.getElementById("hangman-display").textContent = hangmanStates[index];
     }
+
+    wrongGuesses.push(userAnswer);
+    document.getElementById("wrong-guesses").textContent = "Guessed letters: " + wrongGuesses.join(", ");
   }
 
   // Checks to see if there are remaining guesse left, and if not, initiates loss mechanism and restarts game
   if (remainingGuesses === 0) {
-    alert("Hang man!");
+    alert("Hang man! The randomly chosen word was " + word);
+
     startGame();
   }
   console.log(remainingGuesses);
