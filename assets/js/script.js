@@ -86,6 +86,7 @@ function startGame() {
 
 startGame();
 
+// Game won logic
 function gameWon() {
   for (const letter of letters) {
     if (!letterStatus[letter]) {
@@ -123,20 +124,19 @@ function checkAnswer() {
     if (index < hangmanStates.length) {
       document.getElementById("hangman-display").textContent = hangmanStates[index];
     }
-
     wrongGuesses.push(userAnswer);
     document.getElementById("wrong-guesses").textContent = "Guessed letters: " + wrongGuesses.join(", ");
   }
 
 
   if (remainingGuesses === 0) {
+    // Game Lost logic
     document.getElementById("game-result").textContent = "Hang man!";
-    document.getElementById("final-word").textContent = "The ward was " + word;
+    document.getElementById("final-word").textContent = "The word was " + word;
   } else if (gameWon()) {
+    // Renders game won 
     document.getElementById("game-result").textContent = "Congratulations! You won!";
-    document.getElementById("final-word").textContent = "The ward was " + word;
-
-
+    document.getElementById("final-word").textContent = "The word was " + word;
   }
 
 
