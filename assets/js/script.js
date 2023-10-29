@@ -86,37 +86,35 @@ function startGame() {
 
 startGame();
 
+function gameWon() {
+  for (const letter of letters) {
+    if (!letterStatus[letter]) {
+      return false;
+    }
+  }
+  return true;
+}
 
 function checkAnswer() {
 
   // Gets user guess and converts it to lowercase if its provided in uppercase 
   let userAnswer = document.getElementById("guess-box").value.toLowerCase();
   let wrongGuess = true;
+  let newDisplayWord = '';
 
   // Replaces the underscores with correctly guessed letters
-  let newDisplayWord = '';
-  for (let i = 0; i < letters.length; i++) {
-    if (userAnswer === letters[i]) {
-      newDisplayWord += letters[i];
+  for (let letter of letters) {
+    if (userAnswer === letter) {
+      newDisplayWord += letter;
       wrongGuess = false;
-      letterStatus[letters[i]] = true;
+      letterStatus[letter] = true;
     } else {
-      newDisplayWord += letterStatus[letters[i]] ? letters[i] : '_ ';
+      newDisplayWord += letterStatus[letter] ? letter : '_ ';
     }
   }
 
   displayWord = newDisplayWord;
   document.getElementById("display-word").textContent = displayWord;
-
-  // Loops through letters to see if the guessed letter is in the word
-  letters.forEach(letter => {
-    if (userAnswer === letter) {
-
-      // Update the status of the guessed letter to true
-      letterStatus[letter] = true;
-      wrongGuess = false;
-    }
-  });
 
   // Renders the hangman with each wrongly guessed letter
   if (wrongGuess) {
@@ -130,17 +128,23 @@ function checkAnswer() {
     document.getElementById("wrong-guesses").textContent = "Guessed letters: " + wrongGuesses.join(", ");
   }
 
-  // Checks to see if there are remaining guesse left, and if not, initiates loss mechanism and restarts game
-  if (remainingGuesses === 0) {
-    alert("Hang man! The randomly chosen word was " + word);
 
-    startGame();
+  if (remainingGuesses === 0) {
+    document.getElementById("game-result").textContent = "Hang man!";
+    document.getElementById("final-word").textContent = "The ward was " + word;
+  } else if (gameWon()) {
+    document.getElementById("game-result").textContent = "Congratulations! You won!";
+    document.getElementById("final-word").textContent = "The ward was " + word;
+
+
   }
-  console.log(remainingGuesses);
+
+
+  // Update UI with remaining guesses
   document.getElementById("remaining-guesses").textContent = `Remaining guesses: ${remainingGuesses}`;
-  //
-  // Clears the input box after checking
   document.getElementById("guess-box").value = "";
 
+  // Logging for testing purposes
+  console.log(remainingGuesses);
   console.log(letterStatus);  // Logs updated letter status
 }
