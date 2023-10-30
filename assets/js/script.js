@@ -1,3 +1,4 @@
+// Initialize event listeners
 document.addEventListener("DOMContentLoaded", function() {
 
   document.getElementById("submit").addEventListener("click", function() {
@@ -11,7 +12,6 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
   document.getElementById("restart").addEventListener("click", function() {
-    // Nuke everything and reset the game
     startGame();
 
     // Send user back to welcome section 
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
-// Fading functionality
+// UI Fading functionality
 function fadeOut(id) {
   const element = document.getElementById(id);
   element.classList.add("fade-out");
@@ -57,7 +57,7 @@ const wordsArray = [
   "wolf", "yak", "zebu"
 ];
 
-// Array to store the hangman states
+// Array to store the hangman states which serve as the graphic
 const hangmanStates = [
   "|========|",
   "  |||\n  |||\n  |||\n  |||\n  |||\n |========|",
@@ -93,7 +93,7 @@ function startGame() {
   // Log out letters for testing
   console.log(letters);
 
-  // Initializez an object to track each letter as having been guessed or not, and sets each to default not guessed
+  // Initialize an object to track each letter as having been guessed or not, and sets each to default not guessed
   letterStatus = {};
 
   letters.forEach(letter => {
@@ -108,12 +108,13 @@ function startGame() {
   document.getElementById("hangman-display").textContent = "";
   document.getElementById("remaining-guesses").textContent = `Remaining guesses: ${remainingGuesses}`;
 
-  // Displays the length of the word, using underscores in place of letters not yet guessed
+  // Displays the length of the word using underscores in place of letters not yet guessed
   displayWord = "_ ".repeat(letters.length);
   document.getElementById("display-word").textContent = displayWord;
   document.getElementById("hangman-display").textContent = "";
 }
 
+// Event lister for start game button
 document.getElementById("start-button").addEventListener("click", function() {
   // Call the startGame function to initialize the game
   startGame();
@@ -122,7 +123,7 @@ document.getElementById("start-button").addEventListener("click", function() {
   wrongGuesses = [];
   document.getElementById("wrong-guesses").textContent = "Guessed letters: ";
 
-  // Scroll down to the game section
+  // Render the game section
   fadeOut("welcome");
   fadeIn("game");
 });
@@ -158,12 +159,10 @@ function checkAnswer() {
   displayWord = newDisplayWord;
   document.getElementById("display-word").textContent = displayWord;
 
-  // Renders the hangman with each wrongly guessed letter
+  // Renders the hangman graphic with each wrongly guessed letter using decrements
   if (wrongGuess) {
     remainingGuesses--;
     let index = 6 - remainingGuesses;
-    console.log("Remaining Guesses: ", remainingGuesses); // Add this line
-    console.log("Index: ", index); // Add this line
     if (index < hangmanStates.length) {
       document.getElementById("hangman-display").textContent = hangmanStates[index];
     }
@@ -177,16 +176,12 @@ function checkAnswer() {
     document.getElementById("final-word").textContent = "The word was " + word;
     fadeOut("game");
     fadeIn("results");
-    //const results = document.getElementById("results");
-    //results.scrollIntoView({ behavior: 'smooth' });
   } else if (gameWon()) {
     // Renders game won 
     document.getElementById("game-result").textContent = "Congratulations! You won!";
     document.getElementById("final-word").textContent = "The word was " + word;
     fadeOut("game");
     fadeIn("results");
-    //const results = document.getElementById("results");
-    //results.scrollIntoView({ behavior: 'smooth' });
   }
 
   // Update UI with remaining guesses
@@ -197,4 +192,3 @@ function checkAnswer() {
   console.log(remainingGuesses);
   console.log(letterStatus);  // Logs updated letter status
 }
-
