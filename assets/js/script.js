@@ -9,7 +9,35 @@ document.addEventListener("DOMContentLoaded", function() {
       checkAnswer();
     }
   });
+
+  document.getElementById("restart").addEventListener("click", function() {
+    // Nuke everything and reset the game
+    startGame();
+
+    // Send user back to welcome section 
+    fadeOut("results");
+    fadeIn("welcome");
+  });
 });
+
+// Fading functionality
+function fadeOut(id) {
+  const element = document.getElementById(id);
+  element.classList.add("fade-out");
+  element.classList.remove("fade-in");
+  setTimeout(() => {
+    element.classList.add("hidden");
+  }, 1000); // Hide after 1s
+}
+
+function fadeIn(id) {
+  const element = document.getElementById(id);
+  element.classList.remove("hidden");
+  element.classList.remove("fade-out"); // Remove fade-out first
+  setTimeout(() => {
+    element.classList.add("fade-in");
+  }, 500); // Add fade-in after a brief delay
+}
 
 // A bank of words from which to randomly select for play
 const wordsArray = [
@@ -32,20 +60,21 @@ const wordsArray = [
 // Array to store the hangman states
 const hangmanStates = [
   "|========|",
-  "  |||\n  |||\n  |||\n  |||\n  |||\n|========|",
-  "  ==============\n  |||\n  |||\n  |||\n  |||\n  |||\n|========|",
-  "  ==============\n  |||       O\n  |||\n  |||\n  |||\n  |||\n|========|",
-  "  ==============\n  |||       O\n  |||       |\n  |||\n  |||\n  |||\n|========|",
-  "  ==============\n  |||       O\n  |||      /|\\ \n  |||\n  |||\n  |||\n|========|",
-  "  ==============\n  |||       O\n  |||      /|\\ \n  |||      / \\ \n  |||\n  |||\n|========|"
+  "  |||\n  |||\n  |||\n  |||\n  |||\n |========|",
+  "  |==============\n  |||\n  |||\n  |||\n  |||\n  |||\n |========|",
+  "  |==============\n  |||       O\n  |||\n  |||\n  |||\n  |||\n |========|",
+  "  |==============\n  |||       O\n  |||       |\n  |||\n  |||\n  |||\n |========|",
+  "  |==============\n  |||       O\n  |||      /|\\ \n  |||\n  |||\n  |||\n |========|",
+  "  |==============\n  |||       O\n  |||      /|\\ \n  |||      / \\ \n  |||\n  |||\n |========|"
 ];
 
-// Initialize variables for the game
+// Initialize global variables for the game
 let letters;
 let letterStatus;
 let remainingGuesses;
 let displayWord;
 let wrongGuesses = [];
+let word;
 
 // Initialize game
 function startGame() {
@@ -56,7 +85,7 @@ function startGame() {
     return wordsArray[randomIndex];
   }
 
-  const word = getRandomWord();
+  word = getRandomWord();
 
   // Splits the randomly generated word into an array of characters that the user can guess
   letters = word.split("");
@@ -76,6 +105,7 @@ function startGame() {
 
   // Sets the number of guesses at the start of the game
   remainingGuesses = 7;
+  document.getElementById("hangman-display").textContent = "";
   document.getElementById("remaining-guesses").textContent = `Remaining guesses: ${remainingGuesses}`;
 
   // Displays the length of the word, using underscores in place of letters not yet guessed
@@ -131,7 +161,9 @@ function checkAnswer() {
   // Renders the hangman with each wrongly guessed letter
   if (wrongGuess) {
     remainingGuesses--;
-    let index = 7 - remainingGuesses;
+    let index = 6 - remainingGuesses;
+    console.log("Remaining Guesses: ", remainingGuesses); // Add this line
+    console.log("Index: ", index); // Add this line
     if (index < hangmanStates.length) {
       document.getElementById("hangman-display").textContent = hangmanStates[index];
     }
@@ -166,29 +198,3 @@ function checkAnswer() {
   console.log(letterStatus);  // Logs updated letter status
 }
 
-document.getElementById("play-again").addEventListener("click", function() {
-  // Nuke everything and reset the game
-  startGame();
-
-  // Send user back to welcome section 
-  fadeOut("results");
-  fadeIn("welcome");
-});
-
-function fadeOut(id) {
-  const element = document.getElementById(id);
-  element.classList.add("fade-out");
-  element.classList.remove("fade-in");
-  setTimeout(() => {
-    element.classList.add("hidden");
-  }, 1000); // Hide after 1s
-}
-
-function fadeIn(id) {
-  const element = document.getElementById(id);
-  element.classList.remove("hidden");
-  element.classList.remove("fade-out"); // Remove fade-out first
-  setTimeout(() => {
-    element.classList.add("fade-in");
-  }, 500); // Add fade-in after a brief delay
-}
