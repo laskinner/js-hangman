@@ -195,7 +195,7 @@ function checkAnswer() {
     // Renders game won 
     fadeOut("game");
     fadeIn("results");
-    document.getElementById("game-result").textContent = "Congratulations! You won!";
+    document.getElementById("game-result").textContent = "You won!";
     document.getElementById("final-word").textContent = "The word was " + word;
   }
 
