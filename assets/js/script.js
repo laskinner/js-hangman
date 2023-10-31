@@ -90,18 +90,12 @@ function startGame() {
   // Splits the randomly generated word into an array of characters that the user can guess
   letters = word.split("");
 
-  // Log out letters for testing
-  console.log(letters);
-
   // Initialize an object to track each letter as having been guessed or not, and sets each to default not guessed
   letterStatus = {};
 
   letters.forEach(letter => {
     letterStatus[letter] = false;
   });
-
-  // Logs out guessed status for testing
-  console.log(letterStatus);
 
   // Sets the number of guesses at the start of the game
   remainingGuesses = 7;
@@ -193,8 +187,4 @@ function checkAnswer() {
   // Update UI with remaining guesses
   document.getElementById("remaining-guesses").textContent = `Remaining guesses: ${remainingGuesses}`;
   document.getElementById("guess-box").value = "";
-
-  // Logging for testing purposes
-  console.log(remainingGuesses);
-  console.log(letterStatus);  // Logs updated letter status
 }
