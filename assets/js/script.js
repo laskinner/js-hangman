@@ -76,8 +76,31 @@ let displayWord;
 let wrongGuesses = [];
 let word;
 
+// Checks username input field and makes let's play clickable
+function checkInput() {
+  const username = document.getElementById('username').value;
+  const playButton = document.getElementById('start-button');
+  playButton.disabled = !username;
+  playButton.onclick = function() {
+    if (!username) {
+      alert("Please enter a username.");
+      return;
+    }
+    startGame(username);
+    // Clear the array containing displayed guesses
+    wrongGuesses = [];
+
+    // Render the game section
+    fadeOut("welcome");
+    fadeIn("game");
+  };
+}
+
 // Initialize game
-function startGame() {
+function startGame(username) {
+  //  document.getElementById('introduction').style.display = 'none';
+  document.getElementById('game').style.display = 'block';
+  document.getElementById('gameText').innerText = `${username}, Guess a letter!`;
 
   // Generates a random word from the words array
   const getRandomWord = () => {
@@ -108,18 +131,6 @@ function startGame() {
   document.getElementById("hangman-display").textContent = "";
 }
 
-// Event lister for start game button
-document.getElementById("start-button").addEventListener("click", function() {
-  // Call the startGame function to initialize the game
-  startGame();
-
-  // Clear the array containing displayed guesses
-  wrongGuesses = [];
-
-  // Render the game section
-  fadeOut("welcome");
-  fadeIn("game");
-});
 
 // Game won logic
 function gameWon() {
