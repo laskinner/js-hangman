@@ -11,8 +11,14 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 
+  document.getElementById("username").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+      checkInput();
+    }
+  });
+
   document.getElementById("restart").addEventListener("click", function() {
-    startGame();
+    startGame(username);
 
     // Send user back to welcome section 
     fadeOut("results");
@@ -60,12 +66,12 @@ const wordsArray = [
 // Array to store the hangman states which serve as the graphic
 const hangmanStates = [
   "|========|",
-  "  |||\n  |||\n  |||\n  |||\n  |||\n |========|",
-  "  |==============\n  |||\n  |||\n  |||\n  |||\n  |||\n |========|",
-  "  |==============\n  |||       O\n  |||\n  |||\n  |||\n  |||\n |========|",
-  "  |==============\n  |||       O\n  |||       |\n  |||\n  |||\n  |||\n |========|",
-  "  |==============\n  |||       O\n  |||      /|\\ \n  |||\n  |||\n  |||\n |========|",
-  "  |==============\n  |||       O\n  |||      /|\\ \n  |||      / \\ \n  |||\n  |||\n |========|"
+  "|||\n|||\n|||\n|||\n|||\n|========|",
+  "|==============\n|||\n|||\n|||\n|||\n|||\n|========|",
+  "|==============\n|||       O\n|||\n|||\n|||\n|||\n|========|",
+  "|==============\n|||       O\n|||       |\n|||\n|||\n|||\n|========|",
+  "|==============\n|||       O\n|||      /|\\ \n|||\n|||\n|||\n|========|",
+  "|==============\n|||       O\n|||      /|\\ \n|||      / \\ \n|||\n|||\n|========|"
 ];
 
 // Initialize global variables for the game
@@ -98,8 +104,6 @@ function checkInput() {
 
 // Initialize game
 function startGame(username) {
-  //  document.getElementById('introduction').style.display = 'none';
-  document.getElementById('game').style.display = 'block';
   document.getElementById('gameText').innerText = `${username}, Guess a letter!`;
 
   // Generates a random word from the words array
@@ -183,16 +187,16 @@ function checkAnswer() {
 
   if (remainingGuesses === 0) {
     // Game Lost logic
+    fadeOut("game");
+    fadeIn("results");
     document.getElementById("game-result").textContent = "Hang man!";
     document.getElementById("final-word").textContent = "The word was " + word;
-    fadeOut("game");
-    fadeIn("results");
   } else if (gameWon()) {
     // Renders game won 
-    document.getElementById("game-result").textContent = "Congratulations! You won!";
-    document.getElementById("final-word").textContent = "The word was " + word;
     fadeOut("game");
     fadeIn("results");
+    document.getElementById("game-result").textContent = "Congratulations! You won!";
+    document.getElementById("final-word").textContent = "The word was " + word;
   }
 
   // Update UI with remaining guesses

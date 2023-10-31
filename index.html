@@ -20,7 +20,9 @@
 <body>
   <section id="welcome" class="game-state">
     <h1>Welcome to Hangman!</h1>
-    <h4>Developed by: Luke Skinner using HTML, CSS, and JavaScript</h4>
+    <div id="authored-by">
+      <h4>Developed by: Luke Skinner using HTML, CSS, and JavaScript</h4>
+    </div>
     <div id="instructions" class="margin-top">
       <h2>Instructions</h2>
       <ol>
@@ -39,7 +41,8 @@
       <button id="start-button" disabled>Let's Play</button>
     </div>
   </section>
-  <section id="game" style="display:none;">
+
+  <section id="game" class="game-state">
     <h1 id="gameText"></h1>
     <div id="game-board">
       <div id="word-section">
@@ -60,18 +63,13 @@
         <p>Guessed letters:</p>
         <div id="wrong-guesses"></div>
       </div>
-      <div id="hangman-box">
-        <pre id="hangman-display"></pre>
-      </div>
+      <pre id="hangman-display"></pre>
     </div>
   </section>
 
   <section id="results" class="game-state">
-
     <h1 id="game-result"></h1>
-
     <p id="final-word"></p>
-
     <div id="play-again">
       <button id="restart" class="btn btn--green">Play Again</button>
     </div>

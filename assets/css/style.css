@@ -4,6 +4,7 @@
     box-sizing: border-box;
   }
 
+/* ELEMENTS */
 body {
   font-family: 'Lato', sans-serif;
   font-family: 'Oswald', sans-serif;
@@ -19,6 +20,32 @@ body {
   background-position: center; */
 }
 
+section {
+  margin-top: 2rem;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-size: 2rem;
+}
+
+ol {
+  text-align: left;
+  display: inline-block;
+}
+
+ol li {
+    margin-bottom: 1rem;
+}
+
+button {
+  border-radius: 10%; 
+  background-color: #3a2317;
+  color: #f4decb;
+  padding: 12px 24px;
+}
+
+/* CLASSES */
 
 /* Sections to occupy for viewport */
 .game-state {
@@ -43,41 +70,21 @@ body {
   display: none;
 }
 
-h1 {
-  text-transform: uppercase;
-  text-spacing: 2px;
-  font-size: 4rem;
-}
-
-ol {
-  text-align: left;
-  display: inline-block;
-}
-
-button {
-  border-radius: 10%; /* Fully rounded corners */
-  background-color: #3a2317;
-  color: #f4decb;
-  padding: 10px 20px; /* Adjust as needed */
-}
-
-section {
-  margin-top: 100px;
-}
-
-div #input-section {
-  margin-top: 50px;
-}
-
 .margin-top {
   margin-top: 20px;
 }
 
+/* IDs */
+#input-section {
+  margin-top: 50px;
+}
+
 #game-info {
   display: flex;
-  justify-content: space-between;
-  height: 392px;
-  margin-top: 100px;
+  flex-direction: column;
+  margin-top: 2rem;
+  align-items: center;
+  gap: 1rem;
 }
 
 #info-box, #hangman-box {
@@ -93,16 +100,46 @@ div #input-section {
   gap: 10px;
 }
 
-#hangman-box {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  flex-shrink: 0;
-}
-
 #hangman-display {
   text-align: left;
   display: inline-block;
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
+#authored-by {
+  padding: 2rem;
+}
+
+#instructions {
+  padding: 0 3rem 2rem 3rem;
+}
+
+#username {
+  margin-bottom: 1rem;
+}
+
+#guess-box {
+  margin-bottom: 1rem;
+}
+
+/* MEDIA QUERIES */
+/* Media query: tablets and larger (576px and larger) */
+@media screen and (min-width: 576px) {
+
+}
+
+/* Media query: tablets and larger (768px and larger) */
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 4rem;
+    }
+}
+
+@media screen and (min-width: 992px) {
+#hangman-display {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+}
