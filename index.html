@@ -21,7 +21,7 @@
   <section id="welcome" class="game-state">
     <h1>Welcome to Hangman!</h1>
     <h4>Developed by: Luke Skinner using HTML, CSS, and JavaScript</h4>
-    <div id="instructions">
+    <div id="instructions" class="margin-top">
       <h2>Instructions</h2>
       <ol>
         <li>Click 'Start Game' to begin.</li>
@@ -32,11 +32,11 @@
         <li>Guess the entire word to win.</li>
       </ol>
     </div>
-    <button id="start-button">Start Game</button>
+    <button id="start-button">Let's Play!</button>
   </section>
 
   <section id="game" class="game-state">
-    <h1>Let's Play!</h1>
+    <h1>Guess a letter!</h1>
 
     <div id="game-board">
       <div id="word-section">
@@ -51,10 +51,15 @@
     </div>
 
     <div id="game-info">
-      <div id="display-word"></div>
-      <pre id="hangman-display"></pre>
-      <div id="remaining-guesses"></div>
-      <div id="wrong-guesses"></div>
+      <div id="info-box">
+        <div id="display-word"></div>
+        <div id="remaining-guesses"></div>
+        <p>Guessed letters:</p>
+        <div id="wrong-guesses"></div>
+      </div>
+      <div id="hangman-box">
+        <pre id="hangman-display"></pre>
+      </div>
     </div>
   </section>
 

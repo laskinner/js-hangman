@@ -121,7 +121,6 @@ document.getElementById("start-button").addEventListener("click", function() {
 
   // Clear the array containing displayed guesses
   wrongGuesses = [];
-  document.getElementById("wrong-guesses").textContent = "Guessed letters: ";
 
   // Render the game section
   fadeOut("welcome");
@@ -167,7 +166,7 @@ function checkAnswer() {
       document.getElementById("hangman-display").textContent = hangmanStates[index];
     }
     wrongGuesses.push(userAnswer);
-    document.getElementById("wrong-guesses").textContent = "Guessed letters: " + wrongGuesses.join(", ");
+    document.getElementById("wrong-guesses").textContent = wrongGuesses.join(" - ");
   }
 
   if (remainingGuesses === 0) {
