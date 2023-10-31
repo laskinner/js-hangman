@@ -141,6 +141,13 @@ function checkAnswer() {
 
   // Gets user guess and converts it to lowercase if its provided in uppercase 
   let userAnswer = document.getElementById("guess-box").value.toLowerCase();
+
+  // Validate the input: only allow single alphabetical characters
+  if (!userAnswer.match(/^[a-z]$/)) {
+    alert('Please enter a single letter.');
+    return;
+  }
+
   let wrongGuess = true;
   let newDisplayWord = '';
 
