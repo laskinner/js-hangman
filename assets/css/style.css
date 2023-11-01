@@ -135,7 +135,6 @@ button {
 
 #game-result {
   max-width: 80%;
-  word-wrap: break;
 }
 
 /* MEDIA QUERIES */
@@ -150,7 +149,4 @@ button {
 #hangman-display {
     font-size: 2rem;
   }
-}
-
-@media screen and (min-width: 1200px) {
 }

@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 // Initialize event listeners
 document.addEventListener("DOMContentLoaded", function() {
 
