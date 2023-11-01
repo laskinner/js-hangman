@@ -80,6 +80,8 @@ The only warings shown in the HTML validator we related to empty headings due to
 ![image](https://github.com/laskinner/js-hangman/assets/1858258/496ffcdb-8876-475c-bccb-8344f3bef7eb)
 
 - Lighthouse
+![image](https://github.com/laskinner/js-hangman/assets/1858258/48410075-e6e2-43b9-89a3-50e908aef033)
+
 
 # Notes
 
