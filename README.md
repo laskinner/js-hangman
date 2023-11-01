@@ -102,8 +102,12 @@ The only warings shown in the HTML validator we related to empty headings due to
 ## Lighthouse
 ![image](https://github.com/laskinner/js-hangman/assets/1858258/48410075-e6e2-43b9-89a3-50e908aef033)
 
-# Notes about the words array
+# Notes
+### Words Array
 It was first attempted to import a file containing the array of words to keep the code cleaner, but the import was causing problems, so to simplify the decision was made to just include the array directly in the script.js file. In the future, it would be worth the effort to separete the word bank out into a words.js file, rather than hard-coding the array(s) into the script.js itself. This would make future developments toward features like two-player mode, requiring user-provided words, and categories and difficultly level, cleaner and less prone to error.
+
+### Issue tracking
+Several issues and bugs were tracked using the Github isseu tracker for this project, which can be used and viewed. Outstanding, open issues include the above-mentioned bug regarding the clearing of the previously guessed letters, as well as future features.
 
 # Attribution
 - [Favicon used from Favicon.cc](https://www.favicon.cc/?action=icon&file_id=39774)
