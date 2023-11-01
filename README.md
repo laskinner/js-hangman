@@ -18,6 +18,9 @@ Some foundational development techniques used include:
 # Checkers and validators used
 - JSHint JavaScript Validator
 - W3C HTML Validator
+The only warings shown in the HTML validator we related to empty headings due to content being injected with javascript:
+![image](https://github.com/laskinner/js-hangman/assets/1858258/2a1bb926-9e0c-43bc-b6b1-4501de406a72)
+
 - W3C CSS Validator (Jigsaw)
 - Lighthouse
 
