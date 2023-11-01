@@ -51,22 +51,34 @@ After 7 incorrec guesses, user loses.
 - If the counter reaches the number of characters in the array as being guess correctly, then you are shown you win, and can try again. 
 - Score counter
 
-## Optional
-- Single and multiplayer
+## Future featers
+- Multiplayer mode
 - Categories
   - This would include things like geographies, science, etc.
 - Easy, Medium, hard
 - Score counter
 - Reset scores
 
+# Technologies Used
+- Git
+- Javascript
+- CSS
+- HTML
+- ChaptGPT
+
+# Development and Deployment
+
 # Checkers and validators used
 - JSHint JavaScript Validator
+![image](https://github.com/laskinner/js-hangman/assets/1858258/d7bf4a86-810d-4385-9f85-12e4c8d664da)
+
 - W3C HTML Validator
 The only warings shown in the HTML validator we related to empty headings due to content being injected with javascript:
 ![image](https://github.com/laskinner/js-hangman/assets/1858258/2a1bb926-9e0c-43bc-b6b1-4501de406a72)
 
 - W3C CSS Validator (Jigsaw)
 - Lighthouse
+
 # Notes
 
 ## Words array
