@@ -42,6 +42,7 @@ After 7 incorrec guesses, user loses.
 
 
 ![image](https://github.com/laskinner/js-hangman/assets/1858258/986caa45-557c-49b3-865f-2e51d2e7d4a8)
+
 ![image](https://github.com/laskinner/js-hangman/assets/1858258/6ad36b90-2902-40d5-b4d3-3f665781b841)
 
 
