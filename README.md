@@ -3,6 +3,9 @@ Description: A web-based implementation of the fun game, Hangman, using HTML, CS
 
 Author: Luke Skinner
 
+![image](https://github.com/laskinner/js-hangman/assets/1858258/02647fe5-ddfe-48eb-9ad1-aa0f852898e0)
+
+
 Some foundational development techniques used include:
 - Conditional statements to determine guess correctness
 - For loops to iterate through word arrays
