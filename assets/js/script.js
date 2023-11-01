@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
   document.getElementById("restart").addEventListener("click", function() {
-    startGame(username);
+    startGame();
 
     // Send user back to welcome section 
     fadeOut("results");
