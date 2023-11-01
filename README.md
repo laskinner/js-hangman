@@ -91,8 +91,8 @@ The only warings shown in the HTML validator we related to empty headings due to
 ![image](https://github.com/laskinner/js-hangman/assets/1858258/48410075-e6e2-43b9-89a3-50e908aef033)
 
 # Notes about the words array
-It was first attempted to import a file containing the array of words to keep the code cleaner, but the import was causing problems, so to simplify the decision was made to just include the array directly in the made script.js file. In the future, it would be worth the effort to separete the word bank out into a words.js file, rather than hard-coding them into the script.js itself. This would provide make future developments cleaner and less prone to error, including things like two-player mode, requiring user-provided words, as well as categories and difficultly levels.
+It was first attempted to import a file containing the array of words to keep the code cleaner, but the import was causing problems, so to simplify the decision was made to just include the array directly in the script.js file. In the future, it would be worth the effort to separete the word bank out into a words.js file, rather than hard-coding the array(s) into the script.js itself. This would make future developments toward features like two-player mode, requiring user-provided words, and categories and difficultly level, cleaner and less prone to error.
 
 # Attribution
-[Favicon used from Favicon.cc](https://www.favicon.cc/?action=icon&file_id=39774)
-Used [chatgpt]([url](https://openai.com/)) to help with the ASCII hangman states and to generate an array of 100 words with 5 - 15 characters
+- [Favicon used from Favicon.cc](https://www.favicon.cc/?action=icon&file_id=39774)
+- Used [chatgpt]([url](https://openai.com/)) to help with the ASCII hangman states and to generate an array of 100 words with 5 - 15 characters
