@@ -26,7 +26,12 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
-// UI Fading functionality
+/**
+ * Fade out section function.
+ *
+ * @param {String} id the section id to fade out
+ */
+
 function fadeOut(id) {
   const element = document.getElementById(id);
   element.classList.add("fade-out");
@@ -35,6 +40,12 @@ function fadeOut(id) {
     element.classList.add("hidden");
   }, 1000); // Hide after 1s
 }
+
+/**
+ * Fade out section function.
+ *
+ * @param {String} id the section id to fade in 
+ */
 
 function fadeIn(id) {
   const element = document.getElementById(id);
@@ -82,7 +93,7 @@ let displayWord;
 let wrongGuesses = [];
 let word;
 
-// Checks username input field and makes let's play clickable
+// Checks username input field and makes play button clickable
 function checkInput() {
   const username = document.getElementById('username').value;
   const playButton = document.getElementById('start-button');
@@ -135,7 +146,6 @@ function startGame(username) {
   document.getElementById("hangman-display").textContent = "";
 }
 
-
 // Game won logic
 function gameWon() {
   for (const letter of letters) {
@@ -146,6 +156,7 @@ function gameWon() {
   return true;
 }
 
+// Main function to guesses, decrements, and results
 function checkAnswer() {
 
   // Gets user guess and converts it to lowercase if its provided in uppercase 
@@ -160,7 +171,7 @@ function checkAnswer() {
   let wrongGuess = true;
   let newDisplayWord = '';
 
-  // Replaces the underscores with correctly guessed letters
+  // Replaces the letters of the word with underscores, and converts them back to letters with correct guesses
   for (let letter of letters) {
     if (userAnswer === letter) {
       newDisplayWord += letter;
@@ -174,7 +185,7 @@ function checkAnswer() {
   displayWord = newDisplayWord;
   document.getElementById("display-word").textContent = displayWord;
 
-  // Renders the hangman graphic with each wrongly guessed letter using decrements
+  // Renders the hangman graphic with each wrongly guessed letter using decrements, and displays wrongly guess letters for the user
   if (wrongGuess) {
     remainingGuesses--;
     let index = 6 - remainingGuesses;
@@ -185,6 +196,7 @@ function checkAnswer() {
     document.getElementById("wrong-guesses").textContent = wrongGuesses.join(" - ");
   }
 
+  // Logic to display the results of the game
   if (remainingGuesses === 0) {
     // Game Lost logic
     fadeOut("game");

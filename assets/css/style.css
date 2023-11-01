@@ -58,6 +58,7 @@ button {
   transition: opacity 1s ease-in-out;
 }
 
+/* Fade in and out functionality */
 .fade-out {
   opacity: 0;
 }
@@ -92,6 +93,7 @@ button {
   flex-shrink: 0;
 }
 
+/* Styling for the correct guesses, wrong guesses, and remaining guesses */
 #info-box {
   display: flex;
   flex-direction: column;
@@ -100,6 +102,7 @@ button {
   gap: 10px;
 }
 
+/* Hangman visual */
 #hangman-display {
   text-align: left;
   display: inline-block;

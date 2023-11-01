@@ -18,6 +18,7 @@
 </head>
 
 <body>
+  <!-- Section to display the welcome screen -->
   <section id="welcome" class="game-state">
     <h1>Welcome to Hangman!</h1>
     <div id="authored-by">
@@ -42,6 +43,7 @@
     </div>
   </section>
 
+  <!-- Section to display the game screen -->
   <section id="game" class="game-state">
     <h1 id="gameText"></h1>
     <div id="game-board">
@@ -49,6 +51,7 @@
         <p id="word"></p>
       </div>
 
+      <!-- User input for guess box -->
       <div id="input-section">
         <label for="guess-box" class="guess">Enter a letter:</label>
         <input id="guess-box" type="text" maxlength="1">
@@ -56,6 +59,7 @@
       </div>
     </div>
 
+    <!-- Area to display the hangman as its rendered, remaining guesses, correct guesses, and wrong guesses -->
     <div id="game-info">
       <div id="info-box">
         <div id="display-word"></div>
@@ -67,6 +71,7 @@
     </div>
   </section>
 
+  <!-- Section to display results -->
   <section id="results" class="game-state">
     <h1 id="game-result"></h1>
     <p id="final-word"></p>
