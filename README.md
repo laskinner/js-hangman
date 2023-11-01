@@ -63,6 +63,18 @@ After 7 incorrec guesses, user loses.
 - Score counter
 - Reset scores
 
+# Bugs
+
+One remaining bug which persists is that the previously guessed letters don't disappear from one game to the next:
+
+![image](https://github.com/laskinner/js-hangman/assets/1858258/c9f3b6d3-c7e5-4384-b259-544054fb7bdc)
+
+This is not a show-stopper, as when the user begins guesses letters in the new game, those previously guessed letters disappear:
+
+![image](https://github.com/laskinner/js-hangman/assets/1858258/f31f803e-61b9-424f-89ed-c7d3a8ecf1ff)
+
+However, as this is a fairly severe bug, it should be prioritized accordingly.
+
 # Technologies Used
 - Github
 - Github pages
