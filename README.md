@@ -1,11 +1,6 @@
 # Hangman
 Description: A web-based implementation of the fun game, Hangman, using HTML, CSS, and Javascript.
 
-Author: Luke Skinner
-
-![image](https://github.com/laskinner/js-hangman/assets/1858258/02647fe5-ddfe-48eb-9ad1-aa0f852898e0)
-
-
 Some foundational development techniques used include:
 - Conditional statements to determine guess correctness
 - For loops to iterate through word arrays
@@ -15,14 +10,11 @@ Some foundational development techniques used include:
 - Assigning boolean values to objects to set guessed status
 - Decrement counters to track remaining guesses
 
-# Checkers and validators used
-- JSHint JavaScript Validator
-- W3C HTML Validator
-The only warings shown in the HTML validator we related to empty headings due to content being injected with javascript:
-![image](https://github.com/laskinner/js-hangman/assets/1858258/2a1bb926-9e0c-43bc-b6b1-4501de406a72)
+Author: Luke Skinner
 
-- W3C CSS Validator (Jigsaw)
-- Lighthouse
+![image](https://github.com/laskinner/js-hangman/assets/1858258/02647fe5-ddfe-48eb-9ad1-aa0f852898e0)
+
+Link: https://laskinner.github.io/js-hangman/
 
 # Features
 ## Required
@@ -67,7 +59,14 @@ After 7 incorrec guesses, user loses.
 - Score counter
 - Reset scores
 
+# Checkers and validators used
+- JSHint JavaScript Validator
+- W3C HTML Validator
+The only warings shown in the HTML validator we related to empty headings due to content being injected with javascript:
+![image](https://github.com/laskinner/js-hangman/assets/1858258/2a1bb926-9e0c-43bc-b6b1-4501de406a72)
 
+- W3C CSS Validator (Jigsaw)
+- Lighthouse
 # Notes
 
 ## Words array
