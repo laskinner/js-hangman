@@ -77,6 +77,8 @@ The only warings shown in the HTML validator we related to empty headings due to
 ![image](https://github.com/laskinner/js-hangman/assets/1858258/2a1bb926-9e0c-43bc-b6b1-4501de406a72)
 
 - W3C CSS Validator (Jigsaw)
+![image](https://github.com/laskinner/js-hangman/assets/1858258/496ffcdb-8876-475c-bccb-8344f3bef7eb)
+
 - Lighthouse
 
 # Notes
