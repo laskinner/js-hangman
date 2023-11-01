@@ -3,6 +3,14 @@ Description: A web-based implementation of the fun game, Hangman, using HTML, CS
 
 Author: Luke Skinner
 
+Some foundational development techniques used include:
+- Conditional statements to determine guess correctness
+- For loops to iterate through word arrays
+- Random number generator to select word
+- Parsing strings to Arrays
+- Converting arrays to objects
+- Assigning boolean values to objects to set guessed status
+- Decrement counters to track remaining guesses
 
 # Checkers and validators used
 - JSHint JavaScript Validator
@@ -23,7 +31,6 @@ After 7 incorrec guesses, user loses.
 - How to play
 - Username (with validation)
 - Click here to start!
-- ASCII art
 
 ### Guess a character
 - Guess input
@@ -31,7 +38,7 @@ After 7 incorrec guesses, user loses.
   - no more than one charactor
 
 ### Word bank
-  - 1,0000 words
+  - Generated a word bank of 100 words ranging in length from 5 to 15 characeters using [ChatGPT]([url](https://openai.com/))
   - Less than 10 characters
 
 - Play again
