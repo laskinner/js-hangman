@@ -12,7 +12,8 @@ Some foundational development techniques used include:
 
 Author: Luke Skinner
 
-![image](https://github.com/laskinner/js-hangman/assets/1858258/02647fe5-ddfe-48eb-9ad1-aa0f852898e0)
+![image](https://github.com/laskinner/js-hangman/assets/1858258/5c005689-24e1-468e-8bc0-9400a84ff903)
+
 
 Link to live site: https://laskinner.github.io/js-hangman/
 
@@ -30,7 +31,8 @@ After 7 incorrec guesses, user loses.
 - Ability provdie username
 - A "Let's Play" button to redirect user to play screen
 
-![image](https://github.com/laskinner/js-hangman/assets/1858258/b966842d-e88c-4a67-be5a-8f7c15026b8b)
+![image](https://github.com/laskinner/js-hangman/assets/1858258/9c553f39-d4db-45d2-9dc3-787b7fa5cba6)
+
 
 
 ### Game Screen
@@ -40,17 +42,18 @@ After 7 incorrec guesses, user loses.
 - Users cas see the hangman being rendered with each wrong guess
 - Users can see the correctly guessed charecters being rendered
 
+![image](https://github.com/laskinner/js-hangman/assets/1858258/a304bd6b-75eb-4892-a68e-7e0cfbda0940)
 
-![image](https://github.com/laskinner/js-hangman/assets/1858258/986caa45-557c-49b3-865f-2e51d2e7d4a8)
+![image](https://github.com/laskinner/js-hangman/assets/1858258/5687cc84-2695-4e6d-b4c5-11985bc63912)
 
-![image](https://github.com/laskinner/js-hangman/assets/1858258/6ad36b90-2902-40d5-b4d3-3f665781b841)
 
 
 ### Results Screen
 - User is informed whether they won or lost
 - User has the ability to start over with a button
 
-![image](https://github.com/laskinner/js-hangman/assets/1858258/a7710c9a-faa7-4d91-9ca0-2dc8d57a01c2)
+![image](https://github.com/laskinner/js-hangman/assets/1858258/3ac1171d-857c-4910-9b4b-c0d931e2da09)
+
 
 
 ## Future features
